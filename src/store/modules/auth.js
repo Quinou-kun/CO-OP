@@ -24,32 +24,31 @@ export default {
     setConnectedUser (state, u) {
       state.user = u
       state.connected = true
-      ls.set('token', state.user.token)
-      ls.set('connected', state.connected)
     },
     initState (state) {
-      ls.remove('token')
-      ls.remove('connected')
       Object.assign(state, initialState)
     }
   },
   actions: {
     login ({commit}, credentials) {
       return api.post('/members/signin', credentials).then(response => {
+        ls.set('token', response.data.token)
         commit('setConnectedUser', response.data)
       }).catch(error => {
-        console.log('store > auth > login -> error', error)
+        console.log(error)
       })
     },
-    logout ({commit}) {
-      return api.delete('/members/signout').then(response => {
-        commit('initState')
-      }).catch(error => {
-        console.log('store > auth > logout -> error', error)
-      })
-    },
-    initState ({commit}) {
+    logout ({commit}, forceDeco) {
       commit('initState')
+      ls.remove('token')
+
+      if (forceDeco) {
+        api.delete('/members/signout').then(response => {
+          commit('initState')
+        }).catch(error => {
+          console.log(error)
+        })
+      }
     }
   }
 }

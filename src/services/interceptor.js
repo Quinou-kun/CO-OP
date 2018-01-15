@@ -27,8 +27,8 @@ export default {
       // Do something with response data
       return response
     }, function (error) {
-      if (error.response.status === 401) {
-        store.dispatch('auth/initState')
+      if (error.response && error.response.status === 401) {
+        store.dispatch('auth/logout', !error.response.data.error.indexOf('wrong token'))
         options.router.push({name: 'Signin'})
       }
       return Promise.reject(error)

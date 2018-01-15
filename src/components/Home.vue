@@ -1,6 +1,6 @@
 <template>
   <div>
-      home
+      <button @click="signout()">Signout</button>
   </div>
 </template>
 
@@ -11,24 +11,14 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods: {
+    signout () {
+      this.$store.dispatch('auth/logout', this.user).then(response => {
+        this.$router.push({name: 'Signin'})
+      })
+    }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

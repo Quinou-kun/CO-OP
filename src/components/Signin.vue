@@ -16,9 +16,7 @@
 </template>
 
 <script>
-  import api from '../api'
   export default {
-    name: 'Signin',
     data () {
       return {
         user: {email: '', password: ''}
@@ -26,8 +24,8 @@
     },
     methods: {
       signin () {
-        api.post('/members/signin', this.user).then((response) => {
-          console.log(response.data)
+        this.$store.dispatch('auth/login', this.user).then(response => {
+          this.$router.push({name: 'Home'})
         })
       }
     }

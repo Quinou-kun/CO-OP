@@ -2,7 +2,6 @@
  * Created by quentin on 1/15/18.
  */
 
-import Vue from 'vue'
 import api from '@/api'
 import ls from '@/services/ls'
 import store from '@/store'
@@ -29,8 +28,8 @@ export default {
       return response
     }, function (error) {
       if (error.response.status === 401) {
-        store.dispatch('auth/initstate')
-        options.router.push({name: 'signin'})
+        store.dispatch('auth/initState')
+        options.router.push({name: 'Signin'})
       }
       return Promise.reject(error)
     })

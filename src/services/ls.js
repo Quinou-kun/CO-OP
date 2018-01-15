@@ -10,6 +10,6 @@ export default {
   },
 
   remove (key) {
-    return localStorage.remove(key);
+    return localStorage.remove(key)
   }
 }

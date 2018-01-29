@@ -5,23 +5,19 @@
             <li>{{member.fullname}}</li>
             <li>{{member.email}}</li>
         </ul>
-        <router-link to="/">Home</router-link>
     </div>
 </template>
 
 <script>
-  import api from '@/api'
+  import { mapGetters } from 'vuex'
   export default {
     name: 'Members',
-    data () {
-      return {
-        members: {}
-      }
+    computed: {
+      ...mapGetters({
+        members: 'members/getMembers'
+      })
     },
     created () {
-      api.get('/members').then(response => {
-        this.members = response.data
-      })
     }
   }
 </script>

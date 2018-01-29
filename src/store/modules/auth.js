@@ -49,6 +49,15 @@ export default {
           console.log(error)
         })
       }
+    },
+    delete ({commit}, id) {
+      commit('initState')
+      ls.remove('token')
+      api.delete('/members/' + id).then(response => {
+        commit('initState')
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 }

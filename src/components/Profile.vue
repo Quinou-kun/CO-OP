@@ -1,12 +1,11 @@
 <template>
     <div>
-        <h1>Profile</h1>
+        <h1>Your Profile</h1>
         <ul>
             <li>{{user.fullname}}</li>
             <li>{{user.email}}</li>
         </ul>
-        <router-link to="/">Home</router-link>
-
+        <button @click="deleteAccount()">Delete my account</button>
     </div>
 </template>
 
@@ -23,6 +22,13 @@
       api.get('/members/' + this.user.id + '/signedin').then(response => {
         this.user = response.data
       })
+    },
+    methods: {
+      deleteAccount () {
+        this.$store.dispatch('auth/delete', this.user._id).then(response => {
+          this.$router.push({name: 'Signin'})
+        })
+      }
     }
   }
 </script>

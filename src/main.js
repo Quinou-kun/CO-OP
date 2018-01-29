@@ -6,6 +6,13 @@ import {router} from './router'
 import store from './store'
 import interceptors from './services/interceptor'
 
+require('bootstrap/dist/css/bootstrap.min.css')
+require('bootstrap/dist/js/bootstrap.min.js')
+require('bootstrap/dist/js/bootstrap.bundle.min.js')
+require('jquery/dist/jquery.min.js')
+require('popper.js/dist/popper.min.js')
+require('font-awesome/css/font-awesome.min.css')
+
 Vue.config.productionTip = false
 
 Vue.use(interceptors, {

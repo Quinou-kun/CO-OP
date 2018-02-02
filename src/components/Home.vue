@@ -18,6 +18,7 @@
 
 <style>
     .content{
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         background-color : white;
         width : calc(100vw - 220px);
         display : inline-block;

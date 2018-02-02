@@ -1,6 +1,5 @@
 import api from '@/api'
 import ls from '@/services/ls'
-
 const initialState = {
   connected: false,
   user: {}
@@ -36,6 +35,7 @@ export default {
         commit('setConnectedUser', response.data)
       }).catch(error => {
         console.log(error)
+        alert('Bad login or password')
       })
     },
     logout ({commit}, forceDeco) {

@@ -12,7 +12,7 @@ require('bootstrap/dist/js/bootstrap.bundle.min.js')
 require('jquery/dist/jquery.min.js')
 require('popper.js/dist/popper.min.js')
 require('font-awesome/css/font-awesome.min.css')
-
+require('moment/moment')
 Vue.config.productionTip = false
 
 Vue.use(interceptors, {

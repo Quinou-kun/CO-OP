@@ -83,16 +83,16 @@
           this.$store.dispatch('members/initMember')
           this.$router.push({name: 'Start'})
         })
-      },
-      register () {
-        this.registered = !this.registered
-        api.post('/members', this.newuser).then(response => {
-          this.user.email = this.newuser.email
-        })
-      },
-      setRegister () {
-        this.registered = !this.registered
       }
+    },
+    register () {
+      this.registered = !this.registered
+      api.post('/members', this.newuser).then(response => {
+        this.user.email = this.newuser.email
+      })
+    },
+    setRegister () {
+      this.registered = !this.registered
     }
   }
 </script>

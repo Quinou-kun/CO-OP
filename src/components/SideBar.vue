@@ -50,5 +50,9 @@
     .vertical-menu a:hover {
         background-color : #782150;
     }
+
+    .btn{
+        padding : 10px
+    }
 </style>
 

@@ -7,11 +7,13 @@
             <button @click="deleteChannel()" class="btn btn-outline-danger">Delete</button>
         </div>
 
-        <div id="channel-header form">
+        <div id="channel-header-form">
             <form>
-            <input type="text" class="form-control" v-model="channel.label"/>
-            <input type="text" class="form-control" v-model="channel.topic"/>
-            <button @click="updateChannel()" class="btn btn-outline-success">Save Changes</button>
+                <label>Channel's label</label>
+                <input type="text" class="form-control" v-model="channel.label"/>
+                <label>Channel's topic</label>
+                <input type="text" class="form-control" v-model="channel.topic"/>
+                <button @click="updateChannel()" class="btn btn-outline-success">Save Changes</button>
             </form>
         </div>
         <posts :posts="posts"></posts>
@@ -44,10 +46,10 @@
       displayForm (bool) {
         if (bool) {
           document.getElementById('channel-header').style.display = 'none'
-          document.getElementById('channel-header form').style.display = 'block'
+          document.getElementById('channel-header-form').style.display = 'block'
         } else {
           document.getElementById('channel-header').style.display = 'block'
-          document.getElementById('channel-header form').style.display = 'none'
+          document.getElementById('channel-header-form').style.display = 'none'
         }
       },
       updateChannel () {
@@ -68,11 +70,18 @@
 
 <style>
     #channel-header{
-        width : calc(100vw - 200px);
+        width : calc(97vw - 200px);
         padding : 1%;
-        position : fixed;
+        display : block;
         background-color : white;
         border-bottom : 1px solid #893261;
+    }
+    #channel-header-form{
+        width : calc(97vw - 200px);
+        padding : 1%;
+        background-color : white;
+        border-bottom : 1px solid #893261;
+        display : none;
     }
 </style>
 
